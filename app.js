@@ -9,12 +9,12 @@ db.setModels();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const {userRouter, authRouter} = require('./routes');
+const {userRouter, authRouter, productRouter} = require('./routes');
 
 
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
-
+app.use('/product', productRouter);
 
 
 

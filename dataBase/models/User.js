@@ -15,11 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
         },
+        phone_number: {
+            type: DataTypes.INTEGER
+        },
 
     }, {
         tableName: 'user',
         timestamps: false
     });
+
 
     return User;
 };

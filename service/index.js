@@ -1,3 +1,4 @@
 module.exports.userService = require('./userService');
-module.exports.authServise = require('./authServise');
+module.exports.authService = require('./authService');
 module.exports.oauthService = require('./oauthService');
+module.exports.productService = require('./productService');

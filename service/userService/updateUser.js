@@ -10,8 +10,6 @@ module.exports = (updateObject, id) =>{
             where:{
                 id
             }
-
-
         })
 
     }catch (e) {
