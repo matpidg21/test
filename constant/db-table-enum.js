@@ -1,5 +1,7 @@
 module.exports = {
     USER: 'User',
     OAUTH_TOKEN: 'OAuthToken',
-    PRODUCT: 'Product'
+    PRODUCT: 'Product',
+    ORDER: 'Order',
+    USER_TYPE: 'UserType'
 };

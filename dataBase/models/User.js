@@ -18,12 +18,17 @@ module.exports = (sequelize, DataTypes) => {
         phone_number: {
             type: DataTypes.INTEGER
         },
+        type_id: {
+            type: DataTypes.INTEGER
+        },
 
     }, {
         tableName: 'user',
         timestamps: false
     });
+    const UserType = sequelize.import('./UserType.js');
 
+    User.belongsTo(UserType, {foreignKey: 'type_id'});
 
     return User;
 };

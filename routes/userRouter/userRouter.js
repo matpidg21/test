@@ -10,6 +10,9 @@ router.post('/delete',
     authMiddleware.getUserFromToken,
     userController.deleteUser
 );
-router.post('/update', userController.updateUser);
+router.post('/update',
+    authMiddleware.checkAccessToken,
+    authMiddleware.getUserFromToken,
+    userController.updateUser);
 
 module.exports = router;

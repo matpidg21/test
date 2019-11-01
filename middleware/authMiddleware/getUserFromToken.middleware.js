@@ -6,12 +6,11 @@ module.exports = async (req, res, next) =>{
 
     const userFromAccessToken = await authService.getUserFromTokenByParams(token);
 
-    console.log(userFromAccessToken);
 
     if (!userFromAccessToken) {
         return next(new Error('No user'))
     }
-
     req.user = userFromAccessToken;
+
     next()
 };

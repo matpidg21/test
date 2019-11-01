@@ -11,6 +11,8 @@ module.exports = async findObject =>{
         },
         attributes: ['user_id']
     });
+    console.log('+++++++++++++++++++++++++++');
     console.log(user);
+    console.log('+++++++++++++++++++++++++++');
     return user && user.dataValues;
 };
