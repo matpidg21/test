@@ -3,7 +3,6 @@ const {DB_TABLES} = require('../../constant');
 
 module.exports = async findObject =>{
     const OauthModel = db.getModel(DB_TABLES.OAUTH_TOKEN);
-    console.log(OauthModel);
 
     const user = await OauthModel.findOne({
         where: {
@@ -11,8 +10,6 @@ module.exports = async findObject =>{
         },
         attributes: ['user_id']
     });
-    console.log('+++++++++++++++++++++++++++');
-    console.log(user);
-    console.log('+++++++++++++++++++++++++++');
+
     return user && user.dataValues;
 };
