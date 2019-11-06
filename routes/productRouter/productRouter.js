@@ -13,4 +13,9 @@ router.post('/delete',
     authMiddleware.getUserFromToken,
     productController.deleteProduct);
 
+router.get('/all',
+    authMiddleware.checkAccessToken,
+    authMiddleware.getUserFromToken,
+    productController.getAllProduct);
+
 module.exports = router;

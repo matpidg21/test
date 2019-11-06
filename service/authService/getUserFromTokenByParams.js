@@ -10,6 +10,6 @@ module.exports = async findObject =>{
         },
         attributes: ['user_id']
     });
-
+    console.log(user);
     return user && user.dataValues;
 };

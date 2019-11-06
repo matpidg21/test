@@ -3,15 +3,16 @@ const {DB_TABLES} = require('../../constant');
 
 
 module.exports = (updateObject, user_id) => {
-    const UserModel = db.getModel(DB_TABLES.USER);
-
+    const OrderModel = db.getModel(DB_TABLES.ORDER);
     try {
-        UserModel.update(updateObject, {
+        console.log(updateObject);
+
+        OrderModel.update(updateObject,{
             where:{
-                id: user_id
-            },
-            returning:true
+                user_id
+            }
         })
+
     } catch (e) {
         console.log(e);
     }

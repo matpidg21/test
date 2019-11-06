@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         wight: {
             type: DataTypes.INTEGER,
-            allowNull: false
-        }, tableName: 'product',
+            allowNull: false,
+        }
     }, {
         tableName: 'product',
         timestamps: false

@@ -11,6 +11,19 @@ module.exports = (sequelize, DataTypes) => {
         user_id: {
             type: DataTypes.INTEGER
         },
+        count: {
+            type: DataTypes.INTEGER
+        },
+        recipient:{
+            type: DataTypes.STRING
+        },
+        create_at: {
+            type: DataTypes.STRING,
+            defaultValue: sequelize.fn('now')
+        },
+        status: {
+            type: DataTypes.STRING
+        },
 
     }, {
         tableName: 'order',

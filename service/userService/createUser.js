@@ -6,6 +6,7 @@ module.exports = async userObject => {
     try {
         const user = await UserModel.create(userObject);
 
+
         return user && user.dataValues;
 
     } catch (e) {

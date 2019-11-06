@@ -5,12 +5,13 @@ const {authMiddleware} = require('../../middleware');
 
 
 router.post('/', userController.createUser);
-router.post('/delete',
+
+router.delete('/delete',
     authMiddleware.checkAccessToken,
     authMiddleware.getUserFromToken,
     userController.deleteUser
 );
-router.post('/update',
+router.put('/update',
     authMiddleware.checkAccessToken,
     authMiddleware.getUserFromToken,
     userController.updateUser);
