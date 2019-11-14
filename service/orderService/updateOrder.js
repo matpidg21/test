@@ -5,11 +5,9 @@ const {DB_TABLES} = require('../../constant');
 module.exports = (updateObject, user_id) => {
     const OrderModel = db.getModel(DB_TABLES.ORDER);
     try {
-        console.log(updateObject);
-
-        OrderModel.update(updateObject,{
-            where:{
-                user_id
+        OrderModel.update(updateObject, {
+            where: {
+                recipient_id: user_id
             }
         })
 

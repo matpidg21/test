@@ -6,6 +6,8 @@ const {authMiddleware} = require('../../middleware');
 
 router.post('/', userController.createUser);
 
+router.get('/all', userController.getAllUser); //TODO
+
 router.delete('/delete',
     authMiddleware.checkAccessToken,
     authMiddleware.getUserFromToken,

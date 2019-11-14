@@ -5,6 +5,8 @@ const app = express();
 const db = require('./dataBase').getInstance();
 db.setModels();
 
+require('./modules/cron');
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -18,13 +20,15 @@ app.use('/product', productRouter);
 app.use('/order', orderRouter);
 
 
-
-app.all('*', (req, res) =>{
+app.all('*', (req, res) => {
     res.status(400).end();
 });
 
 
-app.listen(5000, (err) => {
+app.listen(3000, (err) => {
     if (err) console.log(err);
-    console.log('Listen 5000...');
+    console.log('Listen 3000...');
 });
+
+
+module.exports = app;

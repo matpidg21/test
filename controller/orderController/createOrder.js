@@ -5,7 +5,7 @@ const {DB_TABLES} = require('../../constant');
 module.exports = async (req, res) => {
     try {
         const {user_id} = req.user;
-        const {product_id, count} = req.body;
+        const {product_id, recipient_id, carrier_id} = req.body;
 
         const UserModel = db.getModel(DB_TABLES.USER);
         const [recipients] = await UserModel.findAll({
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
             attributes: ['email']
         });
 
-        await orderService.createOrder({user_id, product_id, count, recipient: recipients.email});
+        await orderService.createOrder({user_id, product_id, recipient_id, carrier_id, recipient_email: recipients.email});
 
         res.send('add order')
     } catch (e) {

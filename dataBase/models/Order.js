@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         count: {
             type: DataTypes.INTEGER
         },
-        recipient:{
+        carrier_id:{
+            type: DataTypes.STRING
+        },
+        recipient_id:{
             type: DataTypes.STRING
         },
         create_at: {
@@ -24,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         status: {
             type: DataTypes.STRING
         },
+        recipient_email: {
+            type: DataTypes.STRING
+        },
+
 
     }, {
         tableName: 'order',
@@ -33,7 +40,8 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.import('./User.js');
     const Product = sequelize.import('./Product.js');
 
-
+    Order.belongsTo(User, {foreignKey: 'recipient_id'});
+    Order.belongsTo(User, {foreignKey: 'carrier_id'});
     Order.belongsTo(User, {foreignKey: 'user_id'});
     Order.belongsTo(Product,{foreignKey: 'product_id'});
 

@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     try {
         const {email} = req.body;
 
-        const isUserPresent = await userService.getUserByParams({email});
+        const isUserPresent = await userService.getUserByParams(email);
 
         if (!isUserPresent) {
             throw new Error('User is not found')

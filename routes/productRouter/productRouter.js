@@ -8,7 +8,7 @@ router.post('/',
     authMiddleware.getUserFromToken,
     productController.createProduct);
 
-router.post('/delete',
+router.delete('/delete',
     authMiddleware.checkAccessToken,
     authMiddleware.getUserFromToken,
     productController.deleteProduct);
