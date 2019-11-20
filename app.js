@@ -7,18 +7,23 @@ db.setModels();
 
 require('./modules/cron');
 
+const busboy = require('connect-busboy');
+const busboyBodyParser = require('busboy-body-parser');
 
-app.use(express.json());
+
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(busboy());
+app.use(busboyBodyParser());
 
-const {userRouter, authRouter, productRouter, orderRouter} = require('./routes');
+const {userRouter, authRouter, productRouter, orderRouter, fileRouter} = require('./routes');
 
 
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
-
+app.use('/file', fileRouter);
 
 app.all('*', (req, res) => {
     res.status(400).end();

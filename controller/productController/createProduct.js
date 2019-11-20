@@ -1,6 +1,6 @@
 const {productService} = require('../../service');
 
-module.exports = async (req, res) =>{
+module.exports = async (req, res) => {
     try {
         const product = req.body;
         const {user_id} = req.user;
@@ -9,7 +9,7 @@ module.exports = async (req, res) =>{
         await productService.createProduct(product);
 
         res.status(201).end('ok')
-    }catch (e) {
+    } catch (e) {
         console.log(e);
     }
 };

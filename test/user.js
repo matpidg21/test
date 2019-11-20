@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../app');
-let should = chai.should();
+// let should = chai.should();
 
 chai.use(chaiHttp);
 //
@@ -16,7 +16,6 @@ chai.use(chaiHttp);
 let access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NzM2ODI3OTcsImV4cCI6MTU3Mzc2OTE5N30.mKJlUEwhKb2Ocpft6BS0AXPWcMDNugN0AHyYeqCx7pM";
 
 describe('/GET user', () => {
-    //TODO доробити
     it('it should GET all the user ', (done) => {
         chai.request(app)
             .get('/users/all')
@@ -30,15 +29,18 @@ describe('/GET user', () => {
 });
 
 describe('/POST User', () => {
-    it('it should not POST a product without wight phone_number', (done) => {
+    it('it should not POST a CREATE user', (done) => {
         let user = {
-            name: "1",
-            email: "1",
-            password: "1",
-            phone_number: 1,
+            name: "3edqweded2",
+            email: "23wedwe243",
+            password: "1wed2",
+            phone_number: 32,
             type_id: 3
         };
 
+        if (user.name === "" || user.email === "" || user.password === ""){
+            throw new Error('send valid user')
+        }
         chai.request(app)
             .post('/users')
             .send(user)
@@ -56,8 +58,8 @@ describe('/POST User', () => {
     })
 });
 
-describe('/DELETE user', () =>{
-    it('it shout DELETE user give token', (done) =>{
+describe('/DELETE user', () => {
+    it('it shout DELETE user give token', (done) => {
         chai.request(app)
             .delete('/users/delete')
             .set("Authorization", access_token)
@@ -71,12 +73,12 @@ describe('/DELETE user', () =>{
     })
 });
 
-describe('/UPDATE user', () =>{
-    it('it shout UPDATE user give token' ,(done) =>{
+describe('/UPDATE user', () => {
+    it('it shout UPDATE user give token', (done) => {
         chai.request(app)
             .put('/users/update')
             .set("Authorization", access_token)
-            .send({ phone_number: 1111})
+            .send({phone_number: 1111})
             .end(((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
