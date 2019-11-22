@@ -18,13 +18,16 @@ app.use(busboyBodyParser());
 
 const {userRouter, authRouter, productRouter, orderRouter, fileRouter} = require('./routes');
 
+// app.use(...)
+//    .use(...)
+//    .use(...)
 
-app.use('/users', userRouter);
+app.use('/users', userRouter); 
 app.use('/auth', authRouter);
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
 app.use('/file', fileRouter);
-
+// 400 to constants
 app.all('*', (req, res) => {
     res.status(400).end();
 });
